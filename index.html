@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"bytefox.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"bytefox.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta property="og:type" content="website">
@@ -114,9 +114,29 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
 
   </li>
   </ul>
@@ -177,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-08 00:00:31" itemprop="dateModified" datetime="2021-08-08T00:00:31+08:00">2021-08-08</time>
+                <time title="修改时间：2021-08-08 19:58:45" itemprop="dateModified" datetime="2021-08-08T19:58:45+08:00">2021-08-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -201,28 +221,15 @@
 
       
           <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>​    ArrayList是一种以数组实现的List，与数组所不同的是，它具有动态扩容的能力，因此也称动态数组为。</p>
-<h2 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h2><img src="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image.png" alt="ArrayList继承关系图">
-
-
-
-<ol>
-<li>ArrayList实现了Cleanable、RandomAccess、List、Serializable等接口；</li>
-<li>Cloneable—-可以被克隆；</li>
-<li>RandomAccess—-可以被随机访问；</li>
-<li>List—-提供基础的添加、删除遍历等操作；</li>
-<li>Serializable—-提供可序列化。</li>
-</ol>
-<h2 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h2><img src="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image-16283509956251.png" alt="Image" style="zoom:50%;">
-
-<ol>
-<li>DEFAULT_CAPACITY<br>默认容量是10，也就是new ArrayList()创建时的默认容量。</li>
-<li>EMPTY_ELEMENTDATA<br>空数组，这是用new ArrayList(0)创建时用的数组。</li>
-<li>DEFAULTCAPACITY_EMPTY_ELEMENTDATA<br>空数组，这是用new ArrayList()创建时用的数组，它与EMPTY_ELEMENTDATA的区别是添加第一个元素时使这个空数组初始化为DEFAULT_CAPACITY(10)个元素。</li>
-<li>elementData<br>真正存放元素的地方，用transient是为了不序列化这个字段。<p style="color:red">为什么不用private来修饰呢？（官方解释为了简化嵌套类的访问）
-——但内部类或者嵌套类都可以访问私有成员</p></li>
-<li>size<br>真整存放元素的个数，而不是elementData数组的长度。</li>
-</ol>
-
+<h2 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -352,6 +359,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hub"
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">Hub</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -365,17 +374,49 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">分类</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">标签</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="sidebar-button motion-element">
+    向阳而生
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/guyuhu456" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;guyuhu456" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/5827824297" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5827824297" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
 
 
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://bytefox.top/" title="http:&#x2F;&#x2F;bytefox.top">字节狐</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://laoyufu.top/" title="http:&#x2F;&#x2F;laoyufu.top" rel="noopener" target="_blank">老渔夫</a>
+        </li>
+    </ul>
+  </div>
 
       </div>
 
@@ -402,7 +443,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Hub</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         
@@ -428,7 +469,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>

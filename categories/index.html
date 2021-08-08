@@ -20,25 +20,17 @@
     var CONFIG = {"hostname":"bytefox.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="简介​    ArrayList是一种以数组实现的List，与数组所不同的是，它具有动态扩容的能力，因此也称动态数组为。 继承体系">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ArrayList源码分析">
-<meta property="og:url" content="http://bytefox.top/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="分类">
+<meta property="og:url" content="http://bytefox.top/categories/index.html">
 <meta property="og:site_name" content="字节狐">
-<meta property="og:description" content="简介​    ArrayList是一种以数组实现的List，与数组所不同的是，它具有动态扩容的能力，因此也称动态数组为。 继承体系">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://bytefox.top/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image.png">
-<meta property="og:image" content="http://bytefox.top/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image-16283509956251.png">
-<meta property="article:published_time" content="2021-08-07T07:59:13.000Z">
-<meta property="article:modified_time" content="2021-08-08T11:58:45.827Z">
+<meta property="article:published_time" content="2021-08-08T11:03:09.000Z">
+<meta property="article:modified_time" content="2021-08-08T11:04:57.027Z">
 <meta property="article:author" content="Hub">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="集合">
-<meta property="article:tag" content="ArrayList">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://bytefox.top/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image.png">
 
-<link rel="canonical" href="http://bytefox.top/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+<link rel="canonical" href="http://bytefox.top/categories/">
 
 
 <script id="page-configurations">
@@ -46,12 +38,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>ArrayList源码分析 | 字节狐</title>
+  <title>分类 | 字节狐
+</title>
   
 
 
@@ -169,142 +162,51 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
-          <div class="content post posts-expand">
+          <div class="content page posts-expand">
             
 
     
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://bytefox.top/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hub">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="字节狐">
-    </span>
+    
+    
+    <div class="post-block" lang="zh-CN">
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          ArrayList源码分析
-        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+<h1 class="post-title" itemprop="name headline">分类
+</h1>
 
-              <time title="创建时间：2021-08-07 15:59:13" itemprop="dateCreated datePublished" datetime="2021-08-07T15:59:13+08:00">2021-08-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-08 19:58:45" itemprop="dateModified" datetime="2021-08-08T19:58:45+08:00">2021-08-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
+<div class="post-meta">
+  
 
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>​    ArrayList是一种以数组实现的List，与数组所不同的是，它具有动态扩容的能力，因此也称动态数组为。</p>
-<h2 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h2><span id="more"></span>
-<img src="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image.png" alt="ArrayList继承关系图">
-
-
-
-<ol>
-<li>ArrayList实现了Cleanable、RandomAccess、List、Serializable等接口；</li>
-<li>Cloneable—-可以被克隆；</li>
-<li>RandomAccess—-可以被随机访问；</li>
-<li>List—-提供基础的添加、删除遍历等操作；</li>
-<li>Serializable—-提供可序列化。</li>
-</ol>
-<h2 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h2><img src="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image-16283509956251.png" alt="Image" style="zoom:50%;">
-
-<ol>
-<li>DEFAULT_CAPACITY<br>默认容量是10，也就是new ArrayList()创建时的默认容量。</li>
-<li>EMPTY_ELEMENTDATA<br>空数组，这是用new ArrayList(0)创建时用的数组。</li>
-<li>DEFAULTCAPACITY_EMPTY_ELEMENTDATA<br>空数组，这是用new ArrayList()创建时用的数组，它与EMPTY_ELEMENTDATA的区别是添加第一个元素时使这个空数组初始化为DEFAULT_CAPACITY(10)个元素。</li>
-<li>elementData<br>真正存放元素的地方，用transient是为了不序列化这个字段。<p style="color:red">为什么不用private来修饰呢？（官方解释为了简化嵌套类的访问）
-——但内部类或者嵌套类都可以访问私有成员</p></li>
-<li>size<br>真整存放元素的个数，而不是elementData数组的长度。</li>
-</ol>
-
-    </div>
-
-    
-    
-    
-        <div class="reward-container">
-  <div>觉得不错可以打赏哦</div>
-  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    打赏
-  </button>
-  <div id="qr" style="display: none;">
-      
-      <div style="display: inline-block;">
-        <img src="/images/apple-touch-icon-next.png" alt="Hub 微信支付">
-        <p>微信支付</p>
-      </div>
-      
-      <div style="display: inline-block;">
-        <img src="/images/apple-touch-icon-next.png" alt="Hub 支付宝">
-        <p>支付宝</p>
-      </div>
-
-  </div>
 </div>
 
+</header>
 
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"># Java</a>
-              <a href="/tags/%E9%9B%86%E5%90%88/" rel="tag"># 集合</a>
-              <a href="/tags/ArrayList/" rel="tag"># ArrayList</a>
+      
+      
+      
+      <div class="post-body">
+          <div class="category-all-page">
+            <div class="category-all-title">
+              目前共计 1 个分类
+            </div>
+            <div class="category-all">
+              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span></li></ul>
+            </div>
           </div>
-
         
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2021/08/06/Hello-World-0/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
-    </a></div>
-      <div class="post-nav-item"></div>
+      </div>
+      
+      
+      
     </div>
-      </footer>
     
-  </article>
-  
-  
-  
 
+    
+    
+    
 
 
           </div>
@@ -355,7 +257,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E4%BD%93%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">继承体系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">源码解析</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
