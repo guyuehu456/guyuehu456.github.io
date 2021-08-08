@@ -1,302 +1,411 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="John Doe">
-    
-    
-    
-    
-    
-    
-    <title>Hub&#39;s Blog</title>
-    <!-- inject:style -->
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-    <!-- endinject -->
-    <style>
-        .cube-loading {
-            top: 0;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: url('/images/lg/loading.gif') no-repeat center center;
-            background-color: rgba(0,0,0,.7);
-        }
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-        .cube-loading.out {
-            display: none;
-        }
-
-        .cube-loading:before {
-            display: block;
-            content: 'Loading';
-            position: relative;
-            width: 100%;
-            top: 50%;
-            right: -50%;
-            color: #fff;
-        }
-
-        @media(max-width: 768px) {
-            .cube-loading:before {
-                font-size: 1.2em;
-                transform: translate(-24px,20px);
-                -webkit-transform: translate(-24px,20px);
-                -o-transform: translate(-24px,20px);
-                -ms-transform: translate(-24px,20px);
-            }
-        }
-
-        @media(min-width: 768px) {
-            .cube-loading:before {
-
-            }
-        }
-    </style>
-    
-<meta name="generator" content="Hexo 5.4.0"></head>
-<body>
-<div class="cube-body">
-    <nav id="cube-top-memu" class="cube-menu">
-    <ul class="cube-menu-collapse">
-        
-        <li>
-            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
-            <a href="/">首页</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
-            <a href="/archives">归档</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
-            <a href="/categories">分类</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
-            <a href="/tags">标签</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
-            <a href="/about-me">关于我</a>
-        </li>
-        
-    </ul>
-</nav>
-<nav class="cube-side-menu" id="cube-side-menu">
-    <ul class="cube-menu-list">
-        
-        <li>
-            <a class="lrc-control">Open Lyrics</a>
-        </li>
-        
-        <li>
-            <a class="scroll-to-top">Top</a>
-        </li>
-    </ul>
-</nav>
-    <header class="cube-header" id="cube-header">
-    <img src=" https://10wallpaper.com/wallpaper/3840x2160/1807/Shanghai_Huangpu_River_Lujiazui_Skyscrapers_Morning_3840x2160.jpg " alt="头部背景图片">
-    
-    <div class="cube-type">
-        <span class="cube-typed-title">HuBo&#39;Blog</span>
-        <span class="cube-typed-cursor">|</span>
-    </div>
-    
-</header>
-
-    <style>
-        nav.cube-menu:before {
-            content: '';
-            visibility: hidden;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 44px;
-        
-            filter: blur(6px);
-            -webkit-filter: blur(6px);
-        
-            z-index: -1;
-            background-image: url('https://10wallpaper.com/wallpaper/3840x2160/1807/Shanghai_Huangpu_River_Lujiazui_Skyscrapers_Morning_3840x2160.jpg');
-            background-repeat: no-repeat;
-            background-position: center -256px;
-            background-size: cover;
-            background-color: transparent;
-        }
-
-        header.cube-background.cube-header-background {
-            visibility: hidden;
-            background-image: url('https://10wallpaper.com/wallpaper/3840x2160/1807/Shanghai_Huangpu_River_Lujiazui_Skyscrapers_Morning_3840x2160.jpg');
-            background-position: center -300px;
-        }
-    </style>
-    <header class="cube-background cube-header-background">
-        
-        <div class="cube-type">
-            <span class="cube-typed-title">HuBo&#39;Blog</span>
-            <span class="cube-typed-cursor">|</span>
-        </div>
-        
-    </header>
-    <div class="load-header-background"></div>
-    <script>
-        (function (window) {
-
-            window.headerModule = {}
-            window.headerModule.image = {
-                width: '4000',
-                height: '1000'
-            }
-
-        })(window)
-    </script>
-    
-    <div class="cube-content">
-        <div class="cube-left">
-            
-<div class="cube-excerpt" id="cube-excerpt-Hello World">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2021/08/06/Hello-World-0/">Hello World</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2021-08-06
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2021/08/06/Hello-World-0/">Read More</a>
-    </footer>
-</div>
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<ul class="cube-pagination cube-pagination-6">
-    
-    <li class="cube-pagination-prev disabled">
-        <span>« Prev</span>
-    </li>
-    
-    
-        
-            
-            <li class="cube-pagination-index disabled">
-                <span>1</span>
-            </li>
-            
-        
-    
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bytefox.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-    
-    <li class="cube-pagination-next disabled">
-        <span>Next »</span>
-    </li>
-    
-</ul>
+  <meta property="og:type" content="website">
+<meta property="og:title" content="字节狐">
+<meta property="og:url" content="http://bytefox.top/index.html">
+<meta property="og:site_name" content="字节狐">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Hub">
+<meta name="twitter:card" content="summary">
 
-<!--其他组件后续添加-->
-        </div>
-        <div class="cube-right">
-            
+<link rel="canonical" href="http://bytefox.top/">
 
-<div class="cube-search cube-sidebar" id="cube-search">
-    <div class="search-container">
-        <input type="text" placeholder="Search" class="cube-search-input" id="cube-search-input">
-        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
-    </div>
-    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
-</div>
-<script>
-    (function (window) {
-        'use strict';
-        window.searchModule = {}
-        window.searchModule.JSONUrl = '/content.json'
-        window.searchModule.rootUrl = '/'
-    })(window)
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
 </script>
-<div class="cube-search-form">
-    <div class="cube-search-control">
-        <input type="text" placeholder="Search" class="search-input">
-        <a class="close-button">
-            <i class="cube-icon cube-close" aria-hidden="true"></i>
+
+  <title>字节狐</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">字节狐</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Welcome to my hut</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://bytefox.top/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hub">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="字节狐">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">ArrayList源码分析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-07 15:59:13" itemprop="dateCreated datePublished" datetime="2021-08-07T15:59:13+08:00">2021-08-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-08 00:00:31" itemprop="dateModified" datetime="2021-08-08T00:00:31+08:00">2021-08-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>​    ArrayList是一种以数组实现的List，与数组所不同的是，它具有动态扩容的能力，因此也称动态数组为。</p>
+<h2 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h2><img src="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image.png" alt="ArrayList继承关系图">
+
+
+
+<ol>
+<li>ArrayList实现了Cleanable、RandomAccess、List、Serializable等接口；</li>
+<li>Cloneable—-可以被克隆；</li>
+<li>RandomAccess—-可以被随机访问；</li>
+<li>List—-提供基础的添加、删除遍历等操作；</li>
+<li>Serializable—-提供可序列化。</li>
+</ol>
+<h2 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h2><img src="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image-16283509956251.png" alt="Image" style="zoom:50%;">
+
+<ol>
+<li>DEFAULT_CAPACITY<br>默认容量是10，也就是new ArrayList()创建时的默认容量。</li>
+<li>EMPTY_ELEMENTDATA<br>空数组，这是用new ArrayList(0)创建时用的数组。</li>
+<li>DEFAULTCAPACITY_EMPTY_ELEMENTDATA<br>空数组，这是用new ArrayList()创建时用的数组，它与EMPTY_ELEMENTDATA的区别是添加第一个元素时使这个空数组初始化为DEFAULT_CAPACITY(10)个元素。</li>
+<li>elementData<br>真正存放元素的地方，用transient是为了不序列化这个字段。<p style="color:red">为什么不用private来修饰呢？（官方解释为了简化嵌套类的访问）
+——但内部类或者嵌套类都可以访问私有成员</p></li>
+<li>size<br>真整存放元素的个数，而不是elementData数组的长度。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://bytefox.top/2021/08/06/Hello-World-0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hub">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="字节狐">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/06/Hello-World-0/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-06 19:21:36" itemprop="dateCreated datePublished" datetime="2021-08-06T19:21:36+08:00">2021-08-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hub</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
     </div>
-    <div class="cube-search-result"></div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hub</span>
 </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
 
-
-<div class="cube-author cube-sidebar" id="cube-author">
-    
-    
-    <span>John Doe</span>
-    
-    
-    <div class="count">
-        <a class="count articles"><span>1</span>Article</a>
-        <a class="count tags"><span>0</span>Tags</a>
-        <a class="count categories"><span>0</span>Categories</a>
-    </div>
-</div>
-
-
-
-<div class="cube-music cube-sidebar" id="cube-music">
-    <div class="cube-player aplayer" id="cube-player"></div>
-</div>
-<script>
-    (function (window) {
-        window.musicModule = {}
-        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
-        window.musicModule.lrcConfig = {
-            open: 'Open Lyrics',
-            close: 'Close Lyrics'
-        }
-    })(window)
-</script>
-
-
-
-<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
-    <div class="title">
-        <a>Recent Posts</a>
-    </div>
-    <ul class="list">
         
-        
-        <li>
-            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
-            
-            <div class="normal">
-                <p class="index first">
-                    <span>1</span>
-                </p>
-                <p class="title">
-                    <a href="/2021/08/06/Hello-World-0/" title="Hello World">Hello World</a>
-                </p>
-            </div>
-            
-        </li>
-        
-        
-    </ul>
-</div>
 
 
 
@@ -304,78 +413,48 @@
 
 
 
-<div class="cube-links cube-sidebar" id="cube-links">
-    <div class="title">
-        <a>Links</a>
-    </div>
-    <ul class="list">
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
-            
-            <a href="https://github.com/guyuehu456" target="_blank">GitHub</a>
-        </li>
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/Coding.png">
-            
-            <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
-        </li>
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/SF.png">
-            
-            <a href="https://segmentfault.com/u/aonosora" target="_blank">SF社区</a>
-        </li>
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/开发者头条.png">
-            
-            <a href="https://toutiao.io/u/148070" target="_blank">开发者头条</a>
-        </li>
-        
-    </ul>
-</div>
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
 
 
 
-<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
-    <div class="title">
-        <a>Friend Links</a>
-    </div>
-    <ul class="list">
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
-            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
-        </li>
-        
-    </ul>
-</div>
+
+  
 
 
-        </div>
-    </div>
-</div>
-<footer class="cube-footer">
-    
-© 2017 John Doe
 
-<br>
-Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
-</footer>
-<!-- inject:script -->
-<script src="/js/script.js"></script>
-<!-- endinject -->
-<div class="cube-loading out"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
 </body>
 </html>
