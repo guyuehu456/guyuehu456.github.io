@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>ArrayList源码分析</title>
+    <url>/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>​    ArrayList是一种以数组实现的List，与数组所不同的是，它具有动态扩容的能力，因此也称动态数组为。</p>
+<p><a href="https://www.baidu.com/">你好</a></p>
+<h2 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h2><span id="more"></span>
+<img src="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image.png" alt="ArrayList继承关系图">
+
+
+
+<ol>
+<li>ArrayList实现了Cleanable、RandomAccess、List、Serializable等接口；</li>
+<li>Cloneable—-可以被克隆；</li>
+<li>RandomAccess—-可以被随机访问；</li>
+<li>List—-提供基础的添加、删除遍历等操作；</li>
+<li>Serializable—-提供可序列化。</li>
+</ol>
+<h2 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h2><img src="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image-16283509956251.png" alt="Image" style="zoom:50%;">
+
+<ol>
+<li>DEFAULT_CAPACITY<br>默认容量是10，也就是new ArrayList()创建时的默认容量。</li>
+<li>EMPTY_ELEMENTDATA<br>空数组，这是用new ArrayList(0)创建时用的数组。</li>
+<li>DEFAULTCAPACITY_EMPTY_ELEMENTDATA<br>空数组，这是用new ArrayList()创建时用的数组，它与EMPTY_ELEMENTDATA的区别是添加第一个元素时使这个空数组初始化为DEFAULT_CAPACITY(10)个元素。</li>
+<li>elementData<br>真正存放元素的地方，用transient是为了不序列化这个字段。<p style="color:red">为什么不用private来修饰呢？（官方解释为了简化嵌套类的访问）
+——但内部类或者嵌套类都可以访问私有成员</p></li>
+<li>size<br>真整存放元素的个数，而不是elementData数组的长度。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>集合</tag>
+        <tag>ArrayList</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/08/06/Hello-World-0/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+</search>
