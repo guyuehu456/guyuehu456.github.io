@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>idea本地测试(DeBug)远程代码</title>
+    <url>/2021/08/10/idea%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95(DeBug)%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在实际开发工作中，不免会出现开发错误导致部署远程（如预发环境）的代码出现问题，但又不清楚本地是哪个地方的代码出现问题导致的错误，查看错误日志又不能实时的观测到这条业务的代码流程，于是采用本地测试debug远程代码。这里简单记录下此过程。</p>
+<span id="more"></span>
+<!-- more -->
+<h1 id="IDEA配置"><a href="#IDEA配置" class="headerlink" title="IDEA配置"></a>IDEA配置</h1><ol>
+<li><strong>Edit Configurations</strong> -&gt;  <strong>Add New Configuration</strong> -&gt; <strong>Remote</strong><br>填写服务器ip和端口号。</li>
+<li>编辑Remote配置，Host填写远程项目启动的IP地址，Port为端口号。</li>
+<li>将Command line arguments for remote JVM:中的内容拷贝下来，在接下来重启远程环境项目的过程中使用。然后保存配置。<br><code>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5432</code></li>
+</ol>
+<p><img src="/2021/08/10/idea%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95(DeBug)%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81/mmexport1628612316746.jpg" alt="编辑Remote配置"><br>4. 然后就可以在本地打断点，远程操作业务进行测试</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+        <tag>debug</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ArrayList源码分析</title>
     <url>/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>​    ArrayList是一种以数组实现的List，与数组所不同的是，它具有动态扩容的能力，因此也称动态数组为。</p>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>​    ArrayList是一种以数组实现的List，与数组所不同的是，它具有动态扩容的能力，因此也称动态数组为。</p>
 <span id="more"></span>
 
 
-<h2 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h2><!-- more -->
+<h1 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h1><!-- more -->
 <img src="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image.png" alt="ArrayList继承关系图">
 
 
@@ -19,7 +40,7 @@
 <li>List—-提供基础的添加、删除遍历等操作；</li>
 <li>Serializable—-提供可序列化。</li>
 </ol>
-<h2 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h2><img src="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image-16283509956251.png" alt="Image" style="zoom:50%;">
+<h1 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h1><img src="/2021/08/07/%E6%AD%BB%E7%A3%95Java%E9%9B%86%E5%90%88--ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/Image-16283509956251.png" alt="Image" style="zoom:50%;">
 
 <ol>
 <li>DEFAULT_CAPACITY<br>默认容量是10，也就是new ArrayList()创建时的默认容量。</li>
