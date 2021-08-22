@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>idea本地测试(DeBug)远程代码</title>
-    <url>/2021/08/10/idea%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95(DeBug)%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81/</url>
-    <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在实际开发工作中，不免会出现开发错误导致部署远程（如预发环境）的代码出现问题，但又不清楚本地是哪个地方的代码出现问题导致的错误，查看错误日志又不能实时的观测到这条业务的代码流程，于是采用本地测试debug远程代码。这里简单记录下此过程。</p>
-<span id="more"></span>
-<!-- more -->
-<h1 id="IDEA配置"><a href="#IDEA配置" class="headerlink" title="IDEA配置"></a>IDEA配置</h1><ol>
-<li><strong>Edit Configurations</strong> -&gt;  <strong>Add New Configuration</strong> -&gt; <strong>Remote</strong><br>填写服务器ip和端口号。</li>
-<li>编辑Remote配置，Host填写远程项目启动的IP地址，Port为端口号。</li>
-<li>将Command line arguments for remote JVM:中的内容拷贝下来，在接下来重启远程环境项目的过程中使用。然后保存配置。<br><code>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5432</code></li>
-</ol>
-<p><img src="/2021/08/10/idea%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95(DeBug)%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81/mmexport1628612316746.jpg" alt="编辑Remote配置"><br>4. 然后就可以在本地打断点，远程操作业务进行测试</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-        <tag>debug</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如果要存ip地址，用什么数据类型比较好</title>
     <url>/2021/08/22/%E5%A6%82%E6%9E%9C%E8%A6%81%E5%AD%98ip%E5%9C%B0%E5%9D%80%EF%BC%8C%E7%94%A8%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83%E5%A5%BD/</url>
     <content><![CDATA[<p>​        在看高性能MySQL第3版（4.1.7节）时，建议当存储IPv4地址时，应该使用32位的无符号整数（UNSIGNED INT）来存储IP地址，而不是使用字符串。但是没有给出具体原因。为了搞清楚这个原因，查了一些资料，记录下来。</p>
@@ -46,18 +25,38 @@
 
 <p>对于IPv6来说，使用VARBINARY同样可获得相同的好处，同时MySQL也提供了相应的转换函数，即INET6_ATON和INET6_NTOA。</p>
 <p>对于转换字符串IPv4和数值类型，可以放在应用层，下面是使用java代码来对二者转换：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mikan;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mikan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2015-09-22 10:59</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IpLongUtils</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 把字符串IP转换成long</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ipStr 字符串IP</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> IP对应的long值</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">ip2Long</span><span class="params">(String ipStr)</span> </span>&#123;</span><br><span class="line">        String[] ip = ipStr.split(<span class="string">&quot;\\.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> (Long.valueOf(ip[<span class="number">0</span>]) &lt;&lt; <span class="number">24</span>) + (Long.valueOf(ip[<span class="number">1</span>]) &lt;&lt; <span class="number">16</span>)</span><br><span class="line">                + (Long.valueOf(ip[<span class="number">2</span>]) &lt;&lt; <span class="number">8</span>) + Long.valueOf(ip[<span class="number">3</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 把IP的long值转换成字符串</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ipLong IP的long值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> long值对应的字符串</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">long2Ip</span><span class="params">(<span class="keyword">long</span> ipLong)</span> </span>&#123;</span><br><span class="line">        StringBuilder ip = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        ip.append(ipLong &gt;&gt;&gt; <span class="number">24</span>).append(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">        ip.append((ipLong &gt;&gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xFF</span>).append(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">        ip.append((ipLong &gt;&gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xFF</span>).append(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">        ip.append(ipLong &amp; <span class="number">0xFF</span>);</span><br><span class="line">        <span class="keyword">return</span> ip.toString();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(ip2Long(<span class="string">&quot;192.168.0.1&quot;</span>));</span><br><span class="line">        System.out.println(long2Ip(<span class="number">3232235521L</span>));</span><br><span class="line">        System.out.println(ip2Long(<span class="string">&quot;10.0.0.1&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.hub;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> hub</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/8/22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IpLongUtils</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 把字符串IP转换成long</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ipStr 字符串IP</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> IP对应的long值</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">ip2Long</span><span class="params">(String ipStr)</span> </span>&#123;</span><br><span class="line">        String[] ip = ipStr.split(<span class="string">&quot;\\.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> (Long.valueOf(ip[<span class="number">0</span>]) &lt;&lt; <span class="number">24</span>) + (Long.valueOf(ip[<span class="number">1</span>]) &lt;&lt; <span class="number">16</span>)</span><br><span class="line">                + (Long.valueOf(ip[<span class="number">2</span>]) &lt;&lt; <span class="number">8</span>) + Long.valueOf(ip[<span class="number">3</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 把IP的long值转换成字符串</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ipLong IP的long值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> long值对应的字符串</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">long2Ip</span><span class="params">(<span class="keyword">long</span> ipLong)</span> </span>&#123;</span><br><span class="line">        StringBuilder ip = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        ip.append(ipLong &gt;&gt;&gt; <span class="number">24</span>).append(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">        ip.append((ipLong &gt;&gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xFF</span>).append(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">        ip.append((ipLong &gt;&gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xFF</span>).append(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">        ip.append(ipLong &amp; <span class="number">0xFF</span>);</span><br><span class="line">        <span class="keyword">return</span> ip.toString();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(ip2Long(<span class="string">&quot;192.168.0.1&quot;</span>));</span><br><span class="line">        System.out.println(long2Ip(<span class="number">3232235521L</span>));</span><br><span class="line">        System.out.println(ip2Long(<span class="string">&quot;10.0.0.1&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>输出结果为：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3232235521</span><br><span class="line">192.168.0.1</span><br><span class="line">167772161</span><br></pre></td></tr></table></figure>
 
-
-
+<p>来源：blog.csdn.net/mhmyqn/article/details/48653157</p>
 ]]></content>
       <tags>
         <tag>ip</tag>
         <tag>mysql</tag>
         <tag>数据存储</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>idea本地测试(DeBug)远程代码</title>
+    <url>/2021/08/10/idea%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95(DeBug)%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在实际开发工作中，不免会出现开发错误导致部署远程（如预发环境）的代码出现问题，但又不清楚本地是哪个地方的代码出现问题导致的错误，查看错误日志又不能实时的观测到这条业务的代码流程，于是采用本地测试debug远程代码。这里简单记录下此过程。</p>
+<span id="more"></span>
+<!-- more -->
+<h1 id="IDEA配置"><a href="#IDEA配置" class="headerlink" title="IDEA配置"></a>IDEA配置</h1><ol>
+<li><strong>Edit Configurations</strong> -&gt;  <strong>Add New Configuration</strong> -&gt; <strong>Remote</strong><br>填写服务器ip和端口号。</li>
+<li>编辑Remote配置，Host填写远程项目启动的IP地址，Port为端口号。</li>
+<li>将Command line arguments for remote JVM:中的内容拷贝下来，在接下来重启远程环境项目的过程中使用。然后保存配置。<br><code>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5432</code></li>
+</ol>
+<p><img src="/2021/08/10/idea%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95(DeBug)%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81/mmexport1628612316746.jpg" alt="编辑Remote配置"><br>4. 然后就可以在本地打断点，远程操作业务进行测试</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+        <tag>debug</tag>
       </tags>
   </entry>
   <entry>
